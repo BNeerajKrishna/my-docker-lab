@@ -1,3 +1,8 @@
 fastapi
-uvicorn
-pydantic
+uvicorn[standard]
+sqlalchemy
+databases
+aiosqlite
+mysql-connector-python
+flask
+sqlite3

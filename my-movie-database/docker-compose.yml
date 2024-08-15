@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.39
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: movies_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - my_movie_network
+
+  web:
+    image: ${{ secrets.DOCKER_HUB_USERNAME }}/my-movie-database:1.0.0  # Use the Docker image with tag 1.0.0
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: mysecretpassword
+      DB_NAME: movies_db
+    networks:
+      - my_movie_network
+
+volumes:
+  mysql_data:
+
+networks:
+  my_movie_network:
+    driver: bridge
