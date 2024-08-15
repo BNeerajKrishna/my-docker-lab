@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./my-movie-database
-          file: ./Dockerfile
+          file: ./my-movie-database/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/my-movie-database:1.0.0
 

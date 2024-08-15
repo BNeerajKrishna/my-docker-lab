@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 DATABASE_CONFIG = {
-    'host': os.getenv('DB_HOST', 'db'),  # Default to 'db' if environment variable is not set
+    'host': os.getenv('DB_HOST', 'db'),  # Default to 'db' if environment variable is not set t
     'port': int(os.getenv('DB_PORT', 3306)),  # Default to 3306
     'user': os.getenv('DB_USER', 'root'),  # Default to 'root'
     'password': os.getenv('DB_PASSWORD', 'mysecretpassword'),  # Default to 'mysecretpassword'
