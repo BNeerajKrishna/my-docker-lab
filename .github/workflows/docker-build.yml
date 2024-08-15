@@ -3,9 +3,9 @@ name: Build and Push Docker Image
 on:
   push:
     paths:
-      - Dockerfile
-      - app.py
-      - requirements.txt
+      - my-movie-database/Dockerfile
+      - my-movie-database/app.py
+      - my-movie-database/requirements.txt
     branches:
       - main
 
